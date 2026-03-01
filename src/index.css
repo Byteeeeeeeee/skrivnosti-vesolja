@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+@theme {
+  --font-fredoka: "Fredoka", sans-serif;
+  --color-space-deep: #0a0920;
+}
+
+@layer base {
+  body {
+    @apply bg-space-deep font-fredoka text-white m-0 min-h-screen overflow-x-hidden;
+  }
+}
+
+@layer components {
+  .landing {
+    @apply min-h-screen flex flex-col items-center justify-center px-6 py-20 gap-16 relative overflow-hidden;
+  }
+
+  .planet {
+    @apply absolute bg-sky-400/40 rounded-full blur-[1px];
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.5);
+    animation: float 12s ease-in-out infinite;
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+
+    50% {
+      transform: translate(15px, -15px);
+    }
+  }
+
+  .hero {
+    @apply flex flex-col items-center gap-6 relative z-10;
+  }
+
+  .logo-img {
+    @apply max-w-[500px] w-full h-auto;
+  }
+
+  .tagline {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    @apply font-medium text-white text-center tracking-wide;
+  }
+
+  .features {
+    @apply flex flex-wrap gap-12 justify-center max-w-6xl mx-auto relative z-10;
+  }
+
+  .feature-item {
+    @apply flex flex-col items-center gap-4;
+  }
+
+  .feature-icon {
+    @apply w-[100px] h-[100px] object-contain transition-transform hover:scale-110;
+  }
+
+  .feature-label {
+    @apply text-[1.1rem] font-medium text-white/90;
+  }
+
+  .cta-row {
+    @apply flex flex-wrap gap-8 justify-center relative z-10;
+  }
+
+  .store-img {
+    @apply h-[54px] w-auto transition-transform hover:scale-105;
+  }
+}
+
+@media (max-width: 640px) {
+  .landing {
+    @apply py-12 gap-12;
+  }
+
+  .features {
+    @apply gap-8;
+  }
+
+  .feature-icon {
+    @apply w-20 h-20;
+  }
+
+  .store-img {
+    @apply h-[46px];
+  }
+}
